@@ -24,7 +24,7 @@ beforeEach(() => {
   );
 });
 
-test('should render expense list filters correctly', () => {
+test('should render ExpenseListFilters correctly', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
@@ -35,37 +35,43 @@ test('should render ExpenseListFilters with alt data correctly', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-test('should handle text change',() => {
-  const myValue = 'rent'
-  wrapper.find('input').first().simulate('change', { target: { value: myValue } });;
-  expect(setTextFilter).toHaveBeenLastCalledWith(myValue);
+test('should handle text change', () => {
+  const value = 'rent';
+  wrapper.find('input').simulate('change', {
+    target: { value }
+  });
+  expect(setTextFilter).toHaveBeenLastCalledWith(value);
 });
 
-test('should handle sort by date',() => {
-  const myValue = 'date';
+test('should sort by date', () => {
+  const value = 'date';
   wrapper.setProps({
     filters: altFilters
   });
-  wrapper.find('select').first().simulate('change', { target: { value: myValue } });;
+  wrapper.find('select').simulate('change', {
+    target: { value }
+  });
   expect(sortByDate).toHaveBeenCalled();
 });
 
-test('should handle sort by amount',() => {
-  const myValue = 'amount';
-  wrapper.find('select').first().simulate('change', { target: { value: myValue } });;
+test('should sort by amount', () => {
+  const value = 'amount';
+  wrapper.find('select').simulate('change', {
+    target: { value }
+  });
   expect(sortByAmount).toHaveBeenCalled();
 });
 
 test('should handle date changes', () => {
-  const myStartDate = moment(0).add(4, 'years');
-  const myEndDate = moment(0).add(8, 'years');
-  wrapper.find('DateRangePicker').prop('onDatesChange')({ startDate: myStartDate, endDate: myEndDate });
-  expect(setStartDate).toHaveBeenLastCalledWith(myStartDate);
-  expect(setEndDate).toHaveBeenLastCalledWith(myEndDate);
+  const startDate = moment(0).add(4, 'years');
+  const endDate = moment(0).add(8, 'years');
+  wrapper.find('DateRangePicker').prop('onDatesChange')({ startDate, endDate });
+  expect(setStartDate).toHaveBeenLastCalledWith(startDate);
+  expect(setEndDate).toHaveBeenLastCalledWith(endDate);
 });
 
-test('should handle date focus change', () => {
-  const myCalendarFocused = 'endDate';
-  wrapper.find('DateRangePicker').prop('onFocusChange')(myCalendarFocused);
-  expect(wrapper.state('calendarFocused')).toBe(myCalendarFocused);
+test('hould handle date focus changes', () => {
+  const calendarFocused = 'endDate';
+  wrapper.find('DateRangePicker').prop('onFocusChange')(calendarFocused);
+  expect(wrapper.state('calendarFocused')).toBe(calendarFocused);
 });

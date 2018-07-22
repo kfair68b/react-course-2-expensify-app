@@ -5,25 +5,23 @@ export const setTextFilter = (text = '') => ({
 });
 
 // SORT_BY_DATE
-export const sortByDate = (sortBy = 'date') => ({
-  type: 'SORT_BY_DATE',
-  sortBy
+export const sortByDate = () => ({
+  type: 'SORT_BY_DATE'
 });
 
 // SORT_BY_AMOUNT
-export const sortByAmount = (sortBy = 'amount') => ({
-  type: 'SORT_BY_AMOUNT',
-  sortBy
+export const sortByAmount = () => ({
+  type: 'SORT_BY_AMOUNT'
 });
 
 // SET_START_DATE
-export const setStartDate = (date) => ({
+export const setStartDate = (startDate) => ({
   type: 'SET_START_DATE',
-  startDate: date
+  startDate
 });
 
 // SET_END_DATE
-export const setEndDate = (date) => ({
+export const setEndDate = (endDate) => ({
   type: 'SET_END_DATE',
-  endDate: date
+  endDate
 });

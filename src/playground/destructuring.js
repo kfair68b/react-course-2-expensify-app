@@ -1,45 +1,45 @@
-// Object Destructuring
+//
+// Object destructuring
+//
 
 // const person = {
-//     name: "Kevin",
-//     age: 50,
-//     location: {
-//         city: 'Toronto',
-//         temp: 32
-//     }
-// }
+//   name: 'Andrew',
+//   age: 27,
+//   location: {
+//     city: 'Philadelphia',
+//     temp: 88
+//   }
+// };
 
-// const {name = 'Anonymous', age, location} = person;
+// const { name: firstName = 'Anonymous', age } = person;
+// console.log(`${firstName} is ${age}.`);
 
-// console.log(`${name} feels like ${age}`)
-
-// const {temp: temperature, city} = location;
-
-// if (temperature && city){
-//     console.log(`It's ${temperature} in ${city}`);
+// const { city, temp: temperature } = person.location;
+// if (city && temperature) {
+//   console.log(`It's ${temperature} in ${city}.`);
 // }
 
 // const book = {
-//     title: 'Ego is the Enemy',
-//     author: 'Ryan Holiday',
-//     publisher: {
-//         name: 'Penguin'
-//     }
-// }
+//   title: 'Ego is the Enemy',
+//   author: 'Ryan Holiday',
+//   publisher: {
+//     // name: 'Penguin'
+//   }
+// };
 
-// const {name: publisherName = 'self-published'} = book.publisher;
+// const { name: publisherName = 'Self-Published' } = book.publisher;
 
-// console.log(publisherName); //Penguin or self-publish
+// console.log(publisherName); // Penguin, Self-Published
 
-// Array Destructuring
+//
+// Array destructuring
+//
 
-const address = ['123 Main St.','Toronto','ON','M5M 2E9'];
+// const address = ['1299 S Juniper Street', 'Philadelphia', 'Pennsylvania', '19147'];
+// const [, city, state = 'New York'] = address;
+// console.log(`You are in ${city} ${state}.`);
 
-const [,city,state = 'Manitoba'] = address;
-
-console.log(`You are in ${city} ${state}`);
-
-const item = ['grilled cheese','$1.99','$2.99','$3.50'];
-
+const item = ['Coffee (iced)', '$3.00', '$3.50', '$3.75'];
 const [itemName, , mediumPrice] = item;
-console.log(`A medium ${itemName} costs ${mediumPrice}`)
+
+console.log(`A medium ${itemName} costs ${mediumPrice}`);
